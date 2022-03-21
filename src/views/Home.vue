@@ -12,7 +12,9 @@
 
     <!--top-bar -->
     <v-app-bar app>
+        <!-- 左侧缩放icon -->
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <!-- 面包屑导航 -->
       <v-breadcrumbs :items="DashOrAbout" divider="\"></v-breadcrumbs>
     </v-app-bar>
 
@@ -38,29 +40,29 @@ export default {
       {
         text: "Video",
         disabled: false,
-        href: "/dashboard/video",
+        to: "/dashboard/video",
       },
       {
         text: "Image",
         disabled: false,
-        href: "/dashboard/image",
+        to: "/dashboard/image",
       },
       {
         text: "Music",
         disabled: false,
-        href: "/dashboard/music",
+        to: "/dashboard/music",
       },
     ],
     itemsA: [
       {
         text: "friends",
         disabled: false,
-        href: "/about/friends",
+        to: "/about/friends",
       },
       {
         text: "world",
         disabled: false,
-        href: "/about/world",
+        to: "/about/world",
       },
     ],
   }),
