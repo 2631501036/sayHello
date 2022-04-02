@@ -1,32 +1,33 @@
 <template>
-  <v-app id="inspire">
-    <!-- left -->
-    <v-navigation-drawer v-model="drawer" app>
-      <!-- 用户头像和账号昵称 -->
-      <user-account></user-account>
+  <div>
+    <v-app id="inspire">
+      <!-- left -->
+      <v-navigation-drawer v-model="drawer" app>
+        <!-- 用户头像和账号昵称 -->
+        <user-account></user-account>
 
-      <v-divider>???</v-divider>
-      <!-- 左侧导航 -->
-      <left-router ></left-router>
-    </v-navigation-drawer>
+        <v-divider>???</v-divider>
+        <!-- 左侧导航 -->
+        <left-router></left-router>
+      </v-navigation-drawer>
 
-    <!--top-bar -->
-    <v-app-bar app>
+      <!--top-bar -->
+      <v-app-bar app>
         <!-- 左侧缩放icon -->
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <!-- 面包屑导航 -->
-      <v-breadcrumbs :items="DashOrAbout" divider="\"></v-breadcrumbs>
-    </v-app-bar>
+        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+        <!-- 面包屑导航 -->
+        <v-breadcrumbs :items="DashOrAbout" divider="\"></v-breadcrumbs>
+      </v-app-bar>
 
-    <!-- main -->
-    <v-main>
-      <router-view></router-view>
-    </v-main>
-  </v-app>
+      <!-- main -->
+      <v-main>
+        <router-view></router-view>
+      </v-main>
+    </v-app>
+  </div>
 </template>
 
 <script>
-
 import UserAccount from "@/components/UserAccount.vue";
 import LeftRouter from "@/components/LeftRouter.vue";
 
@@ -35,10 +36,10 @@ export default {
     drawer: null,
     username: "用户名",
     account: "2631501036",
-    isTrue:null,
+    isTrue: null,
     itemsD: [
       {
-        text: "Video",
+        text: "Movie",
         disabled: false,
         to: "/dashboard/video",
       },
@@ -72,18 +73,17 @@ export default {
   },
 
   computed: {
-      DashOrAbout() {
-          if (this.$route.path.indexOf('dashboard') == -1) {
-              return this.itemsA
-          }
-          return this.itemsD
+    DashOrAbout() {
+      if (this.$route.path.indexOf("dashboard") == -1) {
+        return this.itemsA;
       }
+      return this.itemsD;
+    },
   },
   methods: {
     imgClick() {
       this.$router.push(this.src);
-    }
-    
+    },
   },
 };
 </script>

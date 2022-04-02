@@ -1,21 +1,21 @@
 <template>
-  <div class="about">
-    <h1>这里是主页面</h1>
-    <router-view></router-view>
+  <div class="dashboard">
+    <keep-alive>
+        <div>
+<router-view></router-view>
+        </div>
+      
+    </keep-alive>
   </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            
-        }
-    },
-    created () {
-        console.log("dashboard");
-    }
-}
+  data() {
+    return {};
+  },
+  created() {},
+};
 </script>
 
 

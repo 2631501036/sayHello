@@ -37,7 +37,8 @@ const routes = [
                         component: () => import('../views/Video.vue'),
                         meta: {
                             // 需要登录才能进入
-                            login: true
+                            login: true,
+                            
                         },
                     },
                     {
@@ -93,6 +94,14 @@ const routes = [
                 ]
             }
         ]
+    },
+    {
+        path: '/videoplay',
+        name:"VideoPlay",
+        component: () => import('../views/VideoPlay.vue'),
+        meta: {
+            login: true
+        }
     },
     {
         path: '/user',
