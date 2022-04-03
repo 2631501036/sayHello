@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- 轮播 -->
+
     <home-swiper :banners="this.banners"></home-swiper>
     <v-container>
       <v-row
@@ -108,13 +109,12 @@ export default {
         },
         {
           image: "http://94188.xyz/document/swiper/test1.jpg",
-          link: "http://94188.xyz/document/swiper/test1.jpg",
+          link: "http://94188.xyz/document/swiper/test2.jpg",
         },
         {
           image: "http://94188.xyz/document/swiper/test1.jpg",
-          link: "http://94188.xyz/document/swiper/test1.jpg",
+          link: "http://94188.xyz/document/swiper/test2.jpg",
         },
-        
       ],
     };
   },
@@ -122,5 +122,6 @@ export default {
     VideoCard,
     HomeSwiper,
   },
+  
 };
 </script>

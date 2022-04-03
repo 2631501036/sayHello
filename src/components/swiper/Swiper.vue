@@ -5,6 +5,7 @@
       @touchstart="touchStart"
       @touchmove="touchMove"
       @touchend="touchEnd"
+      ref="swiper"
     >
       <slot></slot>
     </div>
@@ -54,11 +55,11 @@ export default {
   },
   mounted: function () {
     // 1.操作DOM, 在前后添加Slide
-    setTimeout(() => {
-      this.handleDom();
-      // 2.开启定时器
-      this.startTimer();
-    }, 3000);
+    // setTimeout(() => {
+    this.handleDom();
+    // 2.开启定时器
+    this.startTimer();
+    // }, 3000);
   },
   methods: {
     /**
@@ -66,6 +67,7 @@ export default {
      */
     startTimer: function () {
       this.playTimer = window.setInterval(() => {
+        // console.log(this.playTimer);
         this.currentIndex++;
         this.scrollContent(-this.currentIndex * this.totalWidth);
       }, this.interval);
@@ -73,6 +75,7 @@ export default {
     stopTimer: function () {
       window.clearInterval(this.playTimer);
     },
+
     /**
      * 滚动到正确的位置
      */
@@ -91,7 +94,11 @@ export default {
      * 校验正确的位置
      */
     checkPosition: function () {
-      window.setTimeout(() => {
+      setTimeout(() => {
+        let swiperEl = this.$refs.swiper;
+        // console.log("width"+this.totalWidth);
+        this.totalWidth = swiperEl.offsetWidth;
+        
         // 1.校验正确的位置
         this.swiperStyle.transition = "0ms";
         if (this.currentIndex >= this.slideCount + 1) {
@@ -120,7 +127,7 @@ export default {
      */
     handleDom: function () {
       // 1.获取要操作的元素
-      let swiperEl = document.querySelector(".swiper");
+      let swiperEl = this.$refs.swiper;
       let slidesEls = swiperEl.getElementsByClassName("slide");
       // 2.保存个数
       this.slideCount = slidesEls.length;
@@ -206,6 +213,14 @@ export default {
 #hy-swiper {
   overflow: hidden;
   position: relative;
+
+  margin: 0 auto;
+  /* background-color: #267DD4; */
+}
+@media screen and (min-width: 600px) {
+  #hy-swiper {
+    width: 50%;
+  }
 }
 .swiper {
   display: flex;

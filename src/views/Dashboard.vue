@@ -1,10 +1,7 @@
 <template>
   <div class="dashboard">
     <keep-alive>
-        <div>
-<router-view></router-view>
-        </div>
-      
+      <router-view></router-view>
     </keep-alive>
   </div>
 </template>
